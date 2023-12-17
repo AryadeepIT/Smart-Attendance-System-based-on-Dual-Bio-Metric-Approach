@@ -12,6 +12,7 @@ class Attendance_System:
         self.root.geometry("1350x690+0+0") 
         self.root.configure(bg='lightblue')
         self.root.title("AUTOMATED ATTENDANCE SYSTEM")
+        self.child_windows = []
 
         # Techno logo
         logo_img = Image.open("Images/tmsl.png")
@@ -76,18 +77,23 @@ class Attendance_System:
         datetimeLabel.after(1000, self.clock)  
 
     def iExit(self):
-        result = tkinter.messagebox.askyesno("LOGOUT", "Are you sure to Logout?", parent=self.root)
-        if result:
-            self.root.destroy()
-        else:
-            return
-
+        #result = tkinter.messagebox.askyesno("LOGOUT", "Are you sure to Logout?", parent=self.root)
+        #if result:
+        #    self.root.destroy()
+        #else:
+        #    return
+        for window in self.child_windows:
+            window.destroy()
+        self.root.destroy()
+        
     def student_details(self):
         self.new_window = Toplevel(self.root)
+        self.child_windows.append(self.new_window)
         self.app = Student(self.new_window, self.fname)
 
     def attendance_data(self):
         self.new_window = Toplevel(self.root)
+        self.child_windows.append(self.new_window)
         self.app = Attendance(self.new_window, self.fname)
 
 if __name__ == "__main__":

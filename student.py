@@ -46,7 +46,7 @@ class Student:
         logout_y = 40
         logout_width = 60
         logout_height = 30
-        logout_btn = Button(root, text="Logout", cursor="hand2", command=self.iExit,
+        logout_btn = Button(root, text="Back", cursor="hand2", command=self.iExit,
                       font=("times new roman", 12, "bold"),bg="red", fg="white",
                       activebackground="darkblue", activeforeground="white")
         logout_btn.place(x=logout_x, y=logout_y, width=logout_width, height=logout_height)
@@ -575,12 +575,13 @@ class Student:
 
     # ============== Exit / Logout ==================
     def iExit(self):
-        self.iExit = tkinter.messagebox.askyesno("LOGOUT", "Are you sure to Logout?", parent=self.root)
-        if self.iExit > 0:
+        #self.iExit = tkinter.messagebox.askyesno("LOGOUT", "Are you sure to Logout?", parent=self.root)
+        #if self.iExit > 0:
             # self.main_window.destroy()
-            self.root.destroy()
-        else:
-            return
+        #    self.root.destroy()
+        #else:
+        #    return
+        self.root.destroy()
 
 if __name__ == "__main__":
     root = Tk()

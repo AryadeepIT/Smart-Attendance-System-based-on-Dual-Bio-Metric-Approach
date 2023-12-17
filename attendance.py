@@ -12,7 +12,7 @@ mydata=[]
 class Attendance:
     def __init__(self, root, fname):
         self.root = root
-        # self.main_window = main_window 
+       # self.main_window = main_window 
         self.root.geometry("1350x690+0+0")
         self.root.configure(bg='lightblue')
         self.root.title("ATTENDANCE REPORT")
@@ -42,7 +42,7 @@ class Attendance:
         logout_y = 40
         logout_width = 60
         logout_height = 30
-        logout_btn = Button(root, text="Logout", cursor="hand2", command=self.iExit,
+        logout_btn = Button(root, text="Back", cursor="hand2", command=self.iExit,
                       font=("times new roman", 12, "bold"),bg="red", fg="white",
                       activebackground="darkblue", activeforeground="white")
         logout_btn.place(x=logout_x, y=logout_y, width=logout_width, height=logout_height)
@@ -270,10 +270,7 @@ class Attendance:
     # ================= Get Cursor Function ========================
     def get_cursor(self,event=""):
         cursor_row = self.AttendanceReport_table.focus()
-        #content=self.AttendanceReport_table.item(cursor_row)
-        #rows = content['values']
-        #self.var_atten_fname.set(rows[0])
-        #self.var_atten_papercode.set(rows[1])
+
     
     # ================ Reset Data Function ================
     def reset_data(self):
@@ -282,12 +279,7 @@ class Attendance:
 
     # ============== Exit / Logout ==================
     def iExit(self):
-        self.iExit = tkinter.messagebox.askyesno("LOGOUT", "Are you sure to Logout?", parent=self.root)
-        if self.iExit > 0:
-            # self.main_window.destroy()
-            self.root.destroy()
-        else:
-            return
+        self.root.destroy()
 
 if __name__ == "__main__":
     root = Tk()

@@ -373,6 +373,10 @@ class Register:
             messagebox.showerror("Error!", "Invalid email address", parent=self.root)
         elif not self.var_phno.get().isdigit() or len(self.var_phno.get()) != 10:
             messagebox.showerror("Error!", "Invalid phone number. Please enter a 10-digit numeric phone number.", parent=self.root)      
+        elif len(self.var_pass.get()) < 6 or not (any(char.isupper() for char in self.var_pass.get()) and
+                                                 any(char.isdigit() for char in self.var_pass.get()) and
+                                                 any(char in "!@#$%^&*()-_=+[]{}|;:'\",.<>?/" for char in self.var_pass.get())):
+            messagebox.showerror("Error", "Password must be at least 6 characters long and include a combination of uppercase characters, numbers, and special characters", parent=self.root)
         elif self.var_pass.get() != self.var_confirmPass.get():
             messagebox.showerror("Error", "Password & Confirm Password must be same", parent=self.root)
         elif self.var_check.get() == 0:
