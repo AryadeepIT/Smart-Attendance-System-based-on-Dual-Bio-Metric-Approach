@@ -77,14 +77,14 @@ class Attendance_System:
         datetimeLabel.after(1000, self.clock)  
 
     def iExit(self):
-        #result = tkinter.messagebox.askyesno("LOGOUT", "Are you sure to Logout?", parent=self.root)
-        #if result:
+        result = tkinter.messagebox.askyesno("LOGOUT", "Are you sure to Logout?", parent=self.root)
+        if result:
         #    self.root.destroy()
         #else:
         #    return
-        for window in self.child_windows:
-            window.destroy()
-        self.root.destroy()
+            for window in self.child_windows:
+                window.destroy()
+            self.root.destroy()
         
     def student_details(self):
         self.new_window = Toplevel(self.root)
