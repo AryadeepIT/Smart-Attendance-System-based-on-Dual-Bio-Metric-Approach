@@ -102,15 +102,15 @@ class Login_Window:
                 messagebox.showerror("Error", "Invalid Username & Password")
             else:
                 self.full_name = row[0]
-                open_main = messagebox.askyesno("Yes/No", "Access only admin")
-                if open_main>0:
-                    messagebox.showinfo("Success", "Welcome {}".format(self.full_name))
-                    self.new_window=Toplevel(self.root)
-                    self.app = Attendance_System(self.new_window, self.full_name)
-                    self.reset_login()    
-                else:
-                    if not open_main:
-                        return
+                #open_main = messagebox.askyesno("Yes/No", "Access only admin")
+                #if open_main>0:
+                messagebox.showinfo("Success", "Welcome {}".format(self.full_name))
+                self.new_window=Toplevel(self.root)
+                self.app = Attendance_System(self.new_window, self.full_name)
+                self.reset_login()    
+                #else:
+                #    if not open_main:
+                #        return
             conn.commit()
             conn.close() 
             self.show_pass_var.set(0)
@@ -223,6 +223,10 @@ class Login_Window:
         elif self.new_password_entry.get()=="":
             messagebox.showerror("Error", "Please enter new password", parent=self.root2) 
 
+        elif len(self.new_password_entry.get()) < 6 or not (any(char.isupper() for char in self.new_password_entry.get()) and
+                                                 any(char.isdigit() for char in self.new_password_entry.get()) and
+                                                 any(char in "!@#$%^&*()-_=+[]{}|;:'\",.<>?/" for char in self.new_password_entry.get())):
+            messagebox.showerror("Error", "Password must be at least 6 characters long and include a combination of uppercase characters, numbers, and special characters", parent=self.root2)
         elif self.new_password_entry.get() != self.confirm_newPass_entry.get():
             messagebox.showerror("Error", "Password & Confirm Password must be same", parent=self.root2)
 
