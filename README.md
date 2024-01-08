@@ -1,9 +1,9 @@
-## AUTOMATED ATTENDANCE MANAGEMENT SYSTEM
+## Smart Attendance System based on Dual Bio-Metric Approach
 
 This is the Final Year Project of our course curriculum ( Bachelor of Technology in
 Information Technology from Techno Main Saltlake, Kolkata, West Bengal).
 
-- Automated Attendance Management System using Face Recognition(implemented) and Fingerprint Recognition(not yet implemented)
+- Smart Attendance System based on Dual Bio-Metric Approach using Face Recognition(implemented) and Fingerprint Recognition(not yet implemented)
 
 ### Team Details
  1. Aryadeep Chakraborty (Univ. Roll No. - 13000221116)
